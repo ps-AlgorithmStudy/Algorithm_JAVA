@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/algorithm.iml" filepath="$PROJECT_DIR$/.idea/algorithm.iml" />
-      <module fileurl="file://$PROJECT_DIR$/mingyun/mingyun.iml" filepath="$PROJECT_DIR$/mingyun/mingyun.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mingyun/mingyun/mingyun.iml" filepath="$PROJECT_DIR$/mingyun/mingyun/mingyun.iml" />
     </modules>
   </component>
 </project>
