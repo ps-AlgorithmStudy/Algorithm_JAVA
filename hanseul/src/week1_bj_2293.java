@@ -3,7 +3,7 @@ import java.io.*;
 import java.util.*;
 
 
-public class bj_2293 {
+public class week1_bj_2293 {
     static int n;
     static int k;
     static int[] arr;
