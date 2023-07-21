@@ -7,7 +7,6 @@ public class week1_bj_11053 {
     static int arr[];
     static int dp[];
     static int max;
-    static int result;
 
     public static void main(String[] args) throws Exception{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -22,25 +21,17 @@ public class week1_bj_11053 {
             int tmp = Integer.parseInt(st.nextToken());
             arr[i] = tmp;
         }
+        max = 1;
         for (int i= 0; i < N ;i++)
         {
             dp[i] = 1;
-            max = arr[i];
-            result = 1;
-            for (int j = i; j< N; j++)
+            for (int j = i - 1; j >= 0; j--)
             {
-                if (dp[i - 1] < dp[i] && max < dp[i])
-                {
-                    max = dp[i];
-                    result++;
-                    dp[i] = (result + 1 > dp[i]) ? result + 1 : dp[i];
-                }
+                if (arr[i] > arr[j])
+                    dp[i] = (dp[j] + 1 > dp[i]) ? dp[j] + 1 : dp[i];
             }
+            max = (max > dp[i]) ? max : dp[i];
         }
-        System.out.println(result);
+        System.out.println(max);
     }
 }
-
-//10 20 0 10 20 30 40 50
-
-
