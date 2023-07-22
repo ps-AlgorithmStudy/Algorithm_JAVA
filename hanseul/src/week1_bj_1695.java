@@ -16,9 +16,30 @@ public class week1_bj_1695 {
             arr[i] = Integer.parseInt(st.nextToken());
         }
 
+        int front = 0;
+        int end = N-1;
+        while (front < end)
+        {
+            if (arr[front] != arr[end])
+            {
+
+            }
+
+        }
+
 
 
 
         br.close();
     }
 }
+
+
+//1 2 3 4 2
+//1 0 1
+//
+//2 4 3 2 1
+
+
+
+
