@@ -1,9 +1,6 @@
 package week1;
 
 import java.io.*;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.StringTokenizer;
 
 public class BJ_골드3_20542_받아쓰기 {
