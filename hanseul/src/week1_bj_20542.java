@@ -25,5 +25,7 @@ public class week1_bj_20542 {
         mStr = br.readLine();
 
 
+
+
     }
 }
