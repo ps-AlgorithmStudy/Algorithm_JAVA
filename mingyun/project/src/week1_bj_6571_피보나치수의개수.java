@@ -4,7 +4,7 @@ import java.util.*;
 
 public class week1_bj_6571_피보나치수의개수 {
     public static void main(String[] args) throws Exception{
-        System.setIn(new FileInputStream("res/input_bj_6571.txt"));
+        System.setIn(new FileInputStream("mingyun/project/res/input_bj_6571.txt"));
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BigInteger[] fib = new BigInteger[1000];
         fib[0] = new BigInteger(new String("1"));
