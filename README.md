@@ -60,7 +60,7 @@
   
 1️⃣ [백준 20542 받아쓰기](https://www.acmicpc.net/problem/20542)<br>
 2️⃣ [개별문제](링크) <br>
-3️⃣ [개별문제](링크)
+3️⃣ [개별문제](링크) 
 
 
 
@@ -79,6 +79,6 @@
 
 |   주차    |      날짜       | 문제 유형 | 풀이 문제 | 난이도 |김한슬 | 김형진 | 이병창 |                                                                             조민균                                                                             | 최준호 |
 |:-------:|:-------------:|:-------:|:-------:|:-------:|:-------:|:---------:|:--------:|:-----------------------------------------------------------------------------------------------------------------------------------------------------------:|:---:|
-| week_01 | 07-20 ~ 07-27 | DP  | <p align=left> 1️⃣ [백준 20542 받아쓰기](https://www.acmicpc.net/problem/20542) <br> 2️⃣ [개별문제](링크) <br> 3️⃣ [개별문제](링크)        |         |         |           |          | 1️⃣ [20542](https://www.acmicpc.net/problem/20542) <br> 2️⃣ [6571](https://www.acmicpc.net/problem/6571) 3️⃣[110523](https://www.acmicpc.net/problem/11053) |     |
+| week_01 |07-20<br>~07-27| DP  | <p align=left> 1️⃣ [백준 20542<br>받아쓰기](https://www.acmicpc.net/problem/20542) <br> 2️⃣ [개별문제](링크) <br> 3️⃣ [개별문제](링크)   </p> |         |         | 1️⃣ [20542](https://www.acmicpc.net/problem/20542) <br/> 2️⃣ [2294](https://www.acmicpc.net/problem/2294) <br/> 3️⃣ [12852](https://www.acmicpc.net/problem/12852)|          |1️⃣ [20542](https://www.acmicpc.net/problem/20542) <br> 2️⃣ [6571](https://www.acmicpc.net/problem/6571) <br> 3️⃣ [110523](https://www.acmicpc.net/problem/11053) |     |
 
 
