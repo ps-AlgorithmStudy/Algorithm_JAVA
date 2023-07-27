@@ -16,6 +16,17 @@ public class week2_bj_2842_집배원한상덕 {
     public static boolean isRange(int x, int y) {
         return x>=0 && y>=0 && x<n && y<n && v[x][y]==0 && (int)range[left] <= s[x][y] && s[x][y] <= (int)range[right];
     }
+
+    public static void dfs(int x, int y, int cnt) {
+        for (int i=0;i<8;i++) {
+            int tx = x+dx[i];
+            int ty = x+dy[i];
+            if (isRange(tx,ty)) {
+                v[tx][ty] = 1;
+                dfs(tx,ty,cnt);
+            }
+        }
+    }
     public static void main(String[] args) throws Exception {
         System.setIn(new FileInputStream("mingyun/project/res/input_bj_2842.txt"));
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -50,6 +61,15 @@ public class week2_bj_2842_집배원한상덕 {
             }
         }
         range = hashSet.toArray();
+
+        for (right = 0;right<range.length;right++) {
+            while (left<=right && left<range.length) {
+                v = new int[n][n];
+                if (isRange(x,y)) {
+                    dfs(x,y,0);
+                }
+            }
+        }
         System.out.println((int) range[0]);
     }
 }
