@@ -17,10 +17,10 @@ public class week1_bj_25215 {
         for(int i=1;i<arrChar.length;i++){
             if(Character.isUpperCase(arrChar[i])) {
                 dp[i][0] = Math.min(dp[i-1][0], dp[i-1][1]) + 2;  // i번째 끝나고 마름모 비활성화 상태인 경우의 최소값
-                dp[i][1] = dp[i-1][1] + 1;  // i번째 끝나고 마름모 활성화 상태인 경우의 최소값
+                dp[i][1] = Math.min(dp[i-1][0] + 2, dp[i-1][1] + 1);  // i번째 끝나고 마름모 활성화 상태인 경우의 최소값
             }
             else {
-                dp[i][0] = dp[i-1][0] + 1;
+                dp[i][0] = Math.min(dp[i-1][0] + 1, dp[i-1][1] + 2);
                 dp[i][1] = Math.min(dp[i-1][0], dp[i-1][1]) + 2;
             }
         }
