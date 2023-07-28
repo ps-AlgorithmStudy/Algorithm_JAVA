@@ -9,31 +9,39 @@ public class week2_bj_2842_집배원한상덕 {
     static int[][] s;
     static int[][] v;
     static int kCnt=0;
-    static Object[] range;
+    static int[] range;
     static int left;
     static int right;
+    static int cnt;
 
     public static boolean isRange(int x, int y) {
-        return x>=0 && y>=0 && x<n && y<n && v[x][y]==0 && (int)range[left] <= s[x][y] && s[x][y] <= (int)range[right];
+        return x>=0 && y>=0 && x<n && y<n && v[x][y]==0 && range[left] <= s[x][y] && s[x][y] <= range[right];
     }
 
-    public static void dfs(int x, int y, int cnt) {
+    public static boolean dfs(int x, int y) {
+        if (m[x][y]=='K') cnt++;
+        if (cnt==kCnt){
+            return true;
+        }
+
+        boolean flag = false;
         for (int i=0;i<8;i++) {
             int tx = x+dx[i];
-            int ty = x+dy[i];
+            int ty = y+dy[i];
             if (isRange(tx,ty)) {
                 v[tx][ty] = 1;
-                dfs(tx,ty,cnt);
+                if (dfs(tx,ty)) return true;
             }
         }
+        return flag;
     }
     public static void main(String[] args) throws Exception {
         System.setIn(new FileInputStream("mingyun/project/res/input_bj_2842.txt"));
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         n = Integer.parseInt(br.readLine());
 
-        m = new char[n][n];
-        s = new int[n][n];
+        m = new char[100][100];
+        s = new int[100][100];
 
         int x = 0, y=0;
         for (int i=0;i<n;i++) {
@@ -60,16 +68,30 @@ public class week2_bj_2842_집배원한상덕 {
                 hashSet.add(s[i][j]);
             }
         }
-        range = hashSet.toArray();
+        Object[] tempArr = hashSet.toArray();
 
-        for (right = 0;right<range.length;right++) {
-            while (left<=right && left<range.length) {
-                v = new int[n][n];
-                if (isRange(x,y)) {
-                    dfs(x,y,0);
+        range = new int[tempArr.length];
+        for (int i=0;i< tempArr.length;i++) {
+            range[i] = (int)tempArr[i];
+        }
+
+        int res = Integer.MAX_VALUE;
+
+        while (right < range.length) {
+            v = new int[100][100];
+            if (isRange(x, y)) {
+                v[x][y] = 1;
+                cnt = 0;
+                if (dfs(x, y)) {
+                    res = Math.min(res, range[right] - range[left]);
+                    left++;
+                } else {
+                    right++;
                 }
+            } else {
+                right++;
             }
         }
-        System.out.println((int) range[0]);
+        System.out.println(res);
     }
 }
