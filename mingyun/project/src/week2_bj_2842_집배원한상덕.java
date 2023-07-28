@@ -15,7 +15,18 @@ public class week2_bj_2842_집배원한상덕 {
     static int cnt;
 
     public static boolean isRange(int x, int y) {
-        return x>=0 && y>=0 && x<n && y<n && v[x][y]==0 && range[left] <= s[x][y] && s[x][y] <= range[right];
+        if (x>=0 && y>=0 && x<n && y<n) {
+            if (v[x][y]==0) {
+                if (left < range.length && right < range.length) {
+                    if (range[left] <= s[x][y] && s[x][y] <= range[right]) {
+                        return true;
+                    }
+                    else return false;
+                }
+                else return false;
+            }
+            else return false;
+        }else return false;
     }
 
     public static boolean dfs(int x, int y) {
@@ -40,8 +51,8 @@ public class week2_bj_2842_집배원한상덕 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         n = Integer.parseInt(br.readLine());
 
-        m = new char[100][100];
-        s = new int[100][100];
+        m = new char[n][n];
+        s = new int[n][n];
 
         int x = 0, y=0;
         for (int i=0;i<n;i++) {
@@ -78,7 +89,7 @@ public class week2_bj_2842_집배원한상덕 {
         int res = Integer.MAX_VALUE;
 
         while (right < range.length) {
-            v = new int[100][100];
+            v = new int[n][n];
             if (isRange(x, y)) {
                 v[x][y] = 1;
                 cnt = 0;
