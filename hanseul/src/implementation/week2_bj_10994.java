@@ -10,8 +10,8 @@ public class week2_bj_10994 {
     static StringBuilder sb = new StringBuilder();
 
     static void printStar(int n){
-        String front = new String();
-        String rear = new String();
+        StringBuilder front = new StringBuilder(new String());
+        StringBuilder rear = new StringBuilder(new String());
         if (n == N)
         {
             sb.append("*");
@@ -28,34 +28,34 @@ public class week2_bj_10994 {
         for (int i = 0; i < n; i++) {
             if (i == 0)
             {
-                front += "*";
-                rear += "*";
+                front.append("*");
+                rear.append("*");
             }
             else
             {
-                front += " *";
-                rear += " *";
+                front.append(" *");
+                rear.append(" *");
             }
 
         }
         for (int i = 0; i < total; i++){
-            front += "*";
-            rear += " ";
+            front.append("*");
+            rear.append(" ");
         }
         for (int i = 0; i < n; i++) {
             if (i == n - 1)
             {
-                front += "*";
-                rear += "*";
+                front.append("*");
+                rear.append("*");
             }
             else
             {
-                front += "* ";
-                rear += "* ";
+                front.append("* ");
+                rear.append("* ");
             }
         }
-        front += "\n";
-        rear += "\n";
+        front.append("\n");
+        rear.append("\n");
 
         //top
         sb.append(front);
