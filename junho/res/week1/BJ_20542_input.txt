@@ -1,0 +1,18 @@
+5 8
+taken
+fishcake
+4 6
+piza
+pizzaa
+9 5
+pineapple
+apple
+7 7
+johnber
+johnson
+7 7
+johnber
+johnson
+7 7
+waccine
+vaccine
