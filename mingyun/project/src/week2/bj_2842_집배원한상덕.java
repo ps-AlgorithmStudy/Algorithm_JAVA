@@ -1,7 +1,9 @@
+package week2;
+
 import java.io.*;
 import java.util.*;
 
-public class week2_bj_2842_집배원한상덕 {
+public class bj_2842_집배원한상덕 {
     static int[] dx = {-1,1,0,0,-1,1,1,-1};
     static int[] dy = {0,0,-1,1,-1,-1,1,1};
     static int n;

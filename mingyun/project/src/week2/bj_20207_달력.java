@@ -1,10 +1,11 @@
+package week2;
+
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class week2_bj_20207_달력 {
+public class bj_20207_달력 {
 
     public void solution() throws Exception {
         System.setIn(new FileInputStream("mingyun/project/res/input_bj_20207.txt"));
@@ -43,6 +44,6 @@ public class week2_bj_20207_달력 {
         System.out.println(sum);
     }
     public static void main(String[] args) throws Exception {
-        new week2_bj_20207_달력().solution();
+        new bj_20207_달력().solution();
     }
 }
