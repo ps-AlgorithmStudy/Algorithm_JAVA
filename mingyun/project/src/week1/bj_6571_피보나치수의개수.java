@@ -1,8 +1,10 @@
+package week1;
+
 import java.io.*;
 import java.math.*;
 import java.util.*;
 
-public class week1_bj_6571_피보나치수의개수 {
+public class bj_6571_피보나치수의개수 {
     public static void main(String[] args) throws Exception{
         System.setIn(new FileInputStream("mingyun/project/res/input_bj_6571.txt"));
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

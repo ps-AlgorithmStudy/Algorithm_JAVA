@@ -1,9 +1,9 @@
-import org.omg.CORBA.WStringValueHelper;
+package week1;
 
 import java.io.*;
 import java.util.*;
 
-public class week1_bj_1092_배 {
+public class bj_1092_배 {
     public static void main(String[] args) throws Exception {
         System.setIn(new FileInputStream("mingyun/project/res/input_bj_1092.txt"));
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
