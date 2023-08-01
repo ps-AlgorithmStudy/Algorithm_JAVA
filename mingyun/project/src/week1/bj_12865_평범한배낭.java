@@ -1,9 +1,9 @@
-import com.sun.org.apache.xpath.internal.operations.String;
+package week1;
 
 import java.io.*;
 import java.util.*;
 
-public class week1_bj_12865_평범한배낭 {
+public class bj_12865_평범한배낭 {
     public static void main(java.lang.String[] args) throws Exception{
         System.setIn(new FileInputStream("mingyun/project/res/input_bj_12865.txt"));
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

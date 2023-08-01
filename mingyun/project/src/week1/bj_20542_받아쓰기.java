@@ -1,7 +1,9 @@
+package week1;
+
 import java.io.*;
 import java.util.*;
 
-public class week1_bj_20542_받아쓰기 {
+public class bj_20542_받아쓰기 {
     public static void main(String[] args) throws Exception{
         System.setIn(new FileInputStream("mingyun/project/res/input_bj_20542.txt"));
 
