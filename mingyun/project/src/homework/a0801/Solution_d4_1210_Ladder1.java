@@ -3,7 +3,7 @@ package homework.a0801;
 import java.io.*;
 import java.util.*;
 
-public class Solution_d3_1210_Ladder1 {
+public class Solution_d4_1210_Ladder1 {
 
 
     public static boolean inRange(int i, int j) {
