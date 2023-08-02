@@ -80,18 +80,14 @@ public class bj_16236_아기상어 {
                         }
                     }
                 }
-                if (flag) {
-                    eat++;
-                    map[rObject.i][rObject.j] = 0;
-                    result = rObject.dept;
-                    if (eat == size) {
-                        size++;
-                        eat = 0;
-                    }
-                    for (int[] m:map) {
-                        System.out.println(Arrays.toString(m));
-                    }
-                    System.out.println(result + " " + eat + "/" +size + "\n");
+            }
+            if (flag) {
+                eat++;
+                map[rObject.i][rObject.j] = 0;
+                result = rObject.dept;
+                if (eat == size) {
+                    size++;
+                    eat = 0;
                 }
             }
         }
