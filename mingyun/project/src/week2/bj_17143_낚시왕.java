@@ -25,8 +25,52 @@ public class bj_17143_낚시왕 {
         }
     }
 
-    public static void moveShark(Shark shark) {
+    public static void move(List<Shark> sharks) {
+        Shark[][] sharkMap = new Shark[n + 1][m + 1];
 
+        for (Shark s : sharks) {
+            moveShark(s);
+            if (sharkMap[s.i][s.j] == null) {
+                sharkMap[s.i][s.j] = s;
+            } else {
+                if (sharkMap[s.i][s.j].size < s.size) {
+                    sharkMap[s.i][s.j] = s;
+                }
+            }
+        }
+
+        sharks.clear();
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= m; j++) {
+                if (sharkMap[i][j] != null) {
+                    sharks.add(sharkMap[i][j]);
+                }
+            }
+        }
+    }
+
+    public static void moveShark(Shark shark) {
+        int i = shark.i;
+        int j = shark.j;
+        int s = shark.s;
+        int d = shark.d;
+
+        while (s > 0) {
+            if (i==n&&d==2||j==m&&d==3) {
+                if (d==2) d=1;
+                if (d==3) d=4;
+            }
+            if (i==1&&d==1||j==1&&d==4) {
+                if (d==1) d=2;
+                if (d==4) d=3;
+            }
+            s--;
+            i += di[d];
+            j += dj[d];
+        }
+        shark.i = i;
+        shark.j = j;
+        shark.d = d;
     }
 
     public static void main(String[] args) throws Exception {
@@ -45,16 +89,26 @@ public class bj_17143_낚시왕 {
             sharks.add(new Shark(r,c, s,d,z));
         }
 
-        int[][] v = new int[n+1][m+1];
-        for (Shark s : sharks) {
-            v[s.i][s.j]++;
-        }
 
-        for (int i=1;i<=n;i++) {
-            for (int j=1;j<=m;j++) {
-                System.out.print(v[i][j] + " ");
+        int result = 0;
+        for (int work=1;work<=m;work++) {
+            int min = Integer.MAX_VALUE;
+            Shark catcher = null;
+            for (Shark s : sharks) {
+                if (s.j == work) {
+                    if (min > s.i) {
+                        min = s.i;
+                        catcher = s;
+                    }
+                }
             }
-            System.out.println();
+            if (catcher!=null) {
+                result += catcher.size;
+                sharks.remove(catcher);
+            }
+
+            move(sharks);
         }
+        System.out.println(result);
     }
 }
