@@ -1,3 +1,5 @@
+package week1;
+
 import java.util.*;
 import java.io.*;
 // 25215번 타이핑

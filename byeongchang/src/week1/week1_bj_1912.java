@@ -1,3 +1,5 @@
+package week1;
+
 import java.util.*;
 import java.io.*;
 // 1912 연속합
