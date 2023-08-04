@@ -9,6 +9,7 @@ public class bj_25760_귀경길교통상황을알려드립니다 {
         ArrayList<Integer> child = new ArrayList<>();
         int dept = 0;
     }
+
     public static void main(String[] args) throws Exception {
         System.setIn(new FileInputStream("mingyun/project/res/input_bj_25760.txt"));
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
