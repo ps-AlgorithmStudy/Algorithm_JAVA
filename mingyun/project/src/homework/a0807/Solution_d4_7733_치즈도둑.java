@@ -88,6 +88,3 @@ public class Solution_d4_7733_치즈도둑 {
         }
     }
 }
-
-
-

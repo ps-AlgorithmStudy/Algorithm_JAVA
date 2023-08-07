@@ -12,6 +12,7 @@ public class bj_2493_탑 {
             this.value = value;
         }
     }
+
     public static void main(String[] args) throws Exception {
         System.setIn(new FileInputStream("mingyun/project/res/input_bj_2493.txt"));
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -30,7 +31,9 @@ public class bj_2493_탑 {
         int[] result = new int[N];
 
         workStack.push(deque.removeLast());
+        int cnt =0;
         while(!deque.isEmpty()) {
+
             Top top = deque.removeLast();
             while (!workStack.isEmpty()) {
                 if (top.value > workStack.getLast().value) {
@@ -45,6 +48,6 @@ public class bj_2493_탑 {
         for (int i=0;i<N;i++) {
             sb.append(result[i]).append(" ");
         }
-        System.out.println(sb);
+        System.out.println(sb + " " + cnt);
     }
 }
