@@ -1,11 +1,7 @@
 package project.src.homework.a0808;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.StringTokenizer;
+import java.io.*;
+import java.util.*;
 
 public class Solution_d4_1233_사칙연산유효성검사 {
     public static class Tree {
