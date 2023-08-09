@@ -5,7 +5,7 @@ import java.util.*;
 
 public class Solution_d4_1233_사칙연산유효성검사 {
     public static class Tree {
-        public static class Node {
+        private class Node {
             boolean isOperator;
             int childCount;
         }
@@ -38,6 +38,7 @@ public class Solution_d4_1233_사칙연산유효성검사 {
         System.setIn(new FileInputStream("mingyun/project/res/input_d4_1233.txt"));
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
+        HashSet<String> hashSet = new HashSet<>(Arrays.asList("+","-","/","*"));
 
         for (int T=1;T<=10;T++) {
             int N = Integer.parseInt(br.readLine());
@@ -47,7 +48,7 @@ public class Solution_d4_1233_사칙연산유효성검사 {
                 int countTokens = st.countTokens();
                 int idx = Integer.parseInt(st.nextToken());
                 String operator = st.nextToken();
-                if ("+-/*".contains(operator)) {
+                if (hashSet.contains(operator)) {
                     tree.add(idx, true,countTokens-2);
                 }
                 else {

@@ -7,7 +7,7 @@ import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.StringTokenizer;
 
-public class bj_22856_트리순회 {
+public class bj_22856_유사트리순회 {
 
     static int cnt = 0;
     static int v = 1;
