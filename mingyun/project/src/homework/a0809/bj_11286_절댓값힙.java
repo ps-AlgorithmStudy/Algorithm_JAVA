@@ -21,7 +21,7 @@ public class bj_11286_절댓값힙 {
         }
     }
     public static void main(String[] args) throws Exception {
-        System.setIn(new FileInputStream("mingyun/project/src/homework/a0809/res/input_11286.txt"));
+        System.setIn(new FileInputStream("mingyun/project/src/homework/a0809/res/input_17406.txt"));
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
         int n = Integer.parseInt(br.readLine());
