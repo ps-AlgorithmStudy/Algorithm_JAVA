@@ -1,4 +1,4 @@
-package week3;
+package project.src.week3.my;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;

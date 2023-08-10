@@ -1,4 +1,4 @@
-package homework.a0802;
+package src.homework.a0802;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
