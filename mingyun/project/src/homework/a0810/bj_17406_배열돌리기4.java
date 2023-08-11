@@ -124,7 +124,7 @@ public class bj_17406_배열돌리기4 {
     }
 
     public static void main(String[] args) throws Exception {
-        System.setIn(new FileInputStream("mingyun/project/src/homework/a0810/res/input_17406.txt"));
+        System.setIn(new FileInputStream("mingyun/project/src/homework/a0810/res/input_11725.txt"));
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
         StringBuilder sb = new StringBuilder();
