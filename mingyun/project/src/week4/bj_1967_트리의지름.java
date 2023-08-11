@@ -1,3 +1,4 @@
+
 package week4;
 
 import java.io.*;
@@ -6,7 +7,7 @@ import java.util.*;
 public class bj_1967_트리의지름 {
     static class Tree {
         class Node {
-            ArrayList<Integer> value = new ArrayList<>();
+            int value;
             ArrayList<Integer> childList = new ArrayList<>();
         }
 
@@ -23,21 +24,27 @@ public class bj_1967_트리의지름 {
 
         void add(int x, int y, int v) {
             nodes[x].childList.add(y);
-            nodes[y].childList.add(x);
-            nodes[x].value.add(v);
-            nodes[y].value.add(v);
+            nodes[y].value = v;
         }
-
         int max;
-        boolean[] v;
 
         private int dfs(int idx) {
-
+            if (nodes[idx].childList.isEmpty()) return nodes[idx].value;
+            else {
+                ArrayList<Integer> arrayList = new ArrayList<>();
+                for (int a: nodes[idx].childList) {
+                    arrayList.add(dfs(a));
+                }
+                arrayList.sort(Comparator.reverseOrder());
+                if (arrayList.size()>=2) {
+                    max = Math.max(max, arrayList.get(0) + arrayList.get(1));
+                }
+                return (arrayList.get(0)+nodes[idx].value);
+            }
         }
 
         int getLength() {
             max=0;
-            v = new boolean[n+1];
             dfs(1);
             return max;
         }
