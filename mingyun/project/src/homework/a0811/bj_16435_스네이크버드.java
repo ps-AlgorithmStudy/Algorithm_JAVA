@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
-public class bj_16435_스네이크버드 {
+class bj_16435_스네이크버드 {
     /*
     9 1
     9 5 8 1 3 2 7 6 4
