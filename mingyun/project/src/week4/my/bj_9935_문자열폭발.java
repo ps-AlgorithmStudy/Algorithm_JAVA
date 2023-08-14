@@ -1,4 +1,4 @@
-package project.src.week4;
+package week4.my;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -11,7 +11,6 @@ public class bj_9935_문자열폭발 {
         System.setIn(new FileInputStream("mingyun/project/src/week4/res/input_bj_9935.txt"));
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
-
 
         char[] string = br.readLine().toCharArray();
         char[] bom = br.readLine().toCharArray();

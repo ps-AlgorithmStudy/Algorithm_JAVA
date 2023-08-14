@@ -7,8 +7,8 @@ import java.util.*;
 public class bj_1967_트리의지름 {
     static class Tree {
         class Node {
-            int value;
-            ArrayList<Integer> childList = new ArrayList<>();
+            ArrayList<Integer> values = new ArrayList<>(1000);
+            ArrayList<Integer> childList = new ArrayList<>(1000);
         }
 
         Node[] nodes;
@@ -24,28 +24,35 @@ public class bj_1967_트리의지름 {
 
         void add(int x, int y, int v) {
             nodes[x].childList.add(y);
-            nodes[y].value = v;
+            nodes[y].childList.add(x);
+            nodes[x].values.add(v);
+            nodes[y].values.add(v);
         }
-        int max;
 
-        private int dfs(int idx) {
-            if (nodes[idx].childList.isEmpty()) return nodes[idx].value;
-            else {
-                ArrayList<Integer> arrayList = new ArrayList<>();
-                for (int a: nodes[idx].childList) {
-                    arrayList.add(dfs(a));
+        int max;
+        int idx;
+        boolean[] v;
+        private void dfs(int idx, int sum) {
+            v[idx] = true;
+            if (sum > max) {
+                this.max = sum;
+                this.idx = idx;
+            }
+            for (int i=0;i<nodes[idx].childList.size();i++) {
+                int target = nodes[idx].childList.get(i);
+                int val = nodes[idx].values.get(i);
+                if (!v[target]) {
+                    dfs(target, sum + val);
                 }
-                arrayList.sort(Comparator.reverseOrder());
-                if (arrayList.size()>=2) {
-                    max = Math.max(max, arrayList.get(0) + arrayList.get(1));
-                }
-                return (arrayList.get(0)+nodes[idx].value);
             }
         }
 
         int getLength() {
-            max=0;
-            dfs(1);
+            max=0;v = new boolean[n+1];
+            dfs(1, 0);
+            max=0;v = new boolean[n+1];
+            if (idx==0) return 0;
+            dfs(this.idx, 0);
             return max;
         }
     }

@@ -2,12 +2,14 @@ package homework.a0811;
 
 import java.util.Scanner;
 
-class pair{
-    int x, y;
-    pair(int x, int y) { this.x = x; this.y = y; }
-}
 
-public class Solution_프로세서_연결하기 {
+
+public class Solution_프로세서연결하기 {
+    static class pair{
+        int x, y;
+        pair(int x, int y) { this.x = x; this.y = y; }
+    }
+
     private static int T, N, size, min;
     private static int arr[][], dx[] = {-1, 1, 0, 0}, dy[] = {0, 0, -1, 1};
     private static pair core[];
