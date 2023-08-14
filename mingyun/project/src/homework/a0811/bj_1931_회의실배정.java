@@ -16,7 +16,7 @@ public class bj_1931_회의실배정 {
         }
     }
     public static void main(String[] args) throws Exception {
-        System.setIn(new FileInputStream("mingyun/project/src/homework/a0811/res/input_1931.txt"));
+        System.setIn(new FileInputStream("mingyun/project/src/homework/a0811/res/input_17144.txt"));
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int n  = Integer.parseInt(br.readLine());
         Data[] data = new Data[n];

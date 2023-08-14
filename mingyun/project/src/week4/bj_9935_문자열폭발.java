@@ -3,60 +3,42 @@ package project.src.week4;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
-import java.util.ArrayDeque;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class bj_9935_문자열폭발 {
 
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
         System.setIn(new FileInputStream("mingyun/project/src/week4/res/input_bj_9935.txt"));
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringBuilder sb = new StringBuilder();
 
-        char[] str = br.readLine().toCharArray();
+
+        char[] string = br.readLine().toCharArray();
         char[] bom = br.readLine().toCharArray();
+        Deque<Character> deque = new ArrayDeque<>();
 
-        ArrayDeque<Character> deque = new ArrayDeque<>();
-        List<Character> lastChars = new LinkedList<>();
-        int bombLength = bom.length;
+        int bs = bom.length;
 
-        for (Character a : str) {
-            deque.addLast(a);
-            lastChars.add(a);
-
-            if (lastChars.size() > bombLength) {
-                lastChars.remove(0);
-            }
-
-            if (lastChars.size() == bombLength) {
-                boolean isBomb = true;
-                for (int i = 0; i < bombLength; i++) {
-                    if (lastChars.get(i) != bom[i]) {
-                        isBomb = false;
+        char[] check = new char[bs];
+        boolean flag;
+        for (char c:string) {
+            deque.addLast(c);
+            if (deque.size() >= bs) {
+                for (int i=bs-1;i>=0;i--) check[i] = deque.removeLast();
+                flag = false;
+                for (int i=0;i<bs;i++) {
+                    if (check[i]!=bom[i]) {
+                        flag = true;
                         break;
                     }
                 }
-
-                if (isBomb) {
-                    for (int i = 0; i < bombLength; i++) {
-                        deque.removeLast();
-                        if (!lastChars.isEmpty()) {
-                            lastChars.remove(lastChars.size() - 1);
-                        }
-                    }
+                if (flag) {
+                    for (char t:check) deque.add(t);
                 }
             }
         }
-
-        StringBuilder sb = new StringBuilder();
-        while (!deque.isEmpty()) {
-            sb.append(deque.pollFirst());
-        }
-
-        if (sb.toString().isEmpty()) {
-            System.out.println("FRULA");
-        } else {
-            System.out.println(sb);
-        }
+        while (!deque.isEmpty()) sb.append(deque.removeFirst());
+        if (sb.toString().isEmpty()) sb.append("FRULA");
+        System.out.println(sb);
     }
 }
