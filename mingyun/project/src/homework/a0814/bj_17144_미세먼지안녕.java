@@ -44,8 +44,7 @@ public class bj_17144_미세먼지안녕 {
             ArrayDeque<Integer> deque = new ArrayDeque<>();
             deque.addFirst(0);
             do {
-                int mi = i + di[d] * (z==0?1:-1);
-                int mj = j + dj[d];
+                int mi = i + di[d] * (z==0?1:-1), mj = j + dj[d];
                 if (inRange(mi,mj)) {
                     deque.addLast(arr[mi][mj]);
                     i = mi; j=mj;
@@ -56,8 +55,7 @@ public class bj_17144_미세먼지안녕 {
 
             i=airCleaner + z; j=0; d=0;
             do {
-                int mi = i + di[d] * (z==0?1:-1);
-                int mj = j + dj[d];
+                int mi = i + di[d] * (z==0?1:-1), mj = j + dj[d];
                 if (inRange(mi,mj)) {
                     arr[mi][mj] = deque.removeFirst();
                     i = mi; j=mj;
@@ -82,6 +80,7 @@ public class bj_17144_미세먼지안녕 {
                 if (arr[i][j]==-1) airCleaner = i-1;
             }
         }
+
         for (int i=0;i<T;i++) {
             arr = spread(arr);
             moveAir(airCleaner, arr);
