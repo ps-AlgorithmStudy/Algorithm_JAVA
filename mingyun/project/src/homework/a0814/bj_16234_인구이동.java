@@ -39,7 +39,6 @@ public class bj_16234_인구이동 {
                 int t = Math.abs(arr[i][j]-arr[mi][mj]);
                 if (L <= t && t <= R) {
                     flag = true;
-                    v[mi][mj] = true;
                     dfs(mi,mj, v, arr, deque);
                 }
             }
@@ -61,20 +60,34 @@ public class bj_16234_인구이동 {
 
         int result = 0;
         do {
-            Deque<Data> temp = new ArrayDeque<>();
             boolean[][] v = new boolean[N][N];
+            int[][] arrCopy = new int[N][N];
+
             flag = false;
+            for (int i=0;i<N;i++) {
+                for (int j = 0; j < N; j++) {
+                    arrCopy[i][j] = arr[i][j];
+                }
+            }
+
             for (int i=0;i<N;i++) {
                 for (int j=0;j<N;j++) {
                     if (!v[i][j]) {
                         cnt = 0;
                         sum = 0;
-                        dfs(0, 0, v, arr, temp);
-                        for (Data d : temp)
+                        Deque<Data> temp = new ArrayDeque<>();
+                        dfs(i, j, v, arrCopy, temp);
+                        for (Data d : temp) {
                             arr[d.i][d.j] = sum / cnt;
+                            //System.out.println(d.i + " " + d.j + " " + sum/cnt);
+                        }
+                        //System.out.println(result);
+                        //for (int[] a:arr) System.out.println(Arrays.toString(a));
                     }
                 }
             }
+
+            //System.out.println();
             if (flag) result++;
         } while (flag);
 
