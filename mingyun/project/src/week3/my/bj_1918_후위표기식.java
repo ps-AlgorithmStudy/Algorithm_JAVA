@@ -40,7 +40,7 @@ public class bj_1918_후위표기식 {
     }
 
     public static void main(String[] args) throws Exception {
-        System.setIn(new FileInputStream("mingyun/project/src/week3/res/input_bj_1918.txt"));
+        System.setIn(new FileInputStream("mingyun/project/src/week3/res/input_bj_15652.txt"));
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         System.out.println(convert(br.readLine()));
     }
