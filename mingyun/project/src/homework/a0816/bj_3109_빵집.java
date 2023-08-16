@@ -19,7 +19,6 @@ public class bj_3109_빵집 {
         if (move==m-1) {
             return 1;
         }
-
         for (int d = 0; d < 3; d++) {
             int tempTop = top + mv[d];
             if (inRange(tempTop) && map[tempTop][move+1]=='.' && !v[tempTop][move+1]) {
@@ -38,14 +37,12 @@ public class bj_3109_빵집 {
         char[][] map = new char[n][m];
         boolean[][] v = new boolean[n][m];
         int sum = 0;
-
         for (int i=0;i<n;i++) {
             map[i] = br.readLine().toCharArray();
         }
         for (int i=0;i<n;i++) {
             sum += dfs(i,0, map, v);
         }
-        //for (boolean[] a:v) System.out.println(Arrays.toString(a));
         System.out.println(sum);
     }
 }
