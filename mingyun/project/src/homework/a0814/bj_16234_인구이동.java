@@ -77,17 +77,10 @@ public class bj_16234_인구이동 {
                         sum = 0;
                         Deque<Data> temp = new ArrayDeque<>();
                         dfs(i, j, v, arrCopy, temp);
-                        for (Data d : temp) {
-                            arr[d.i][d.j] = sum / cnt;
-                            //System.out.println(d.i + " " + d.j + " " + sum/cnt);
-                        }
-                        //System.out.println(result);
-                        //for (int[] a:arr) System.out.println(Arrays.toString(a));
+                        for (Data d : temp) arr[d.i][d.j] = sum / cnt;
                     }
                 }
             }
-
-            //System.out.println();
             if (flag) result++;
         } while (flag);
 
