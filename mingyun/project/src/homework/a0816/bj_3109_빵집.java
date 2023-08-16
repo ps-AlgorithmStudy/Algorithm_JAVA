@@ -16,19 +16,17 @@ public class bj_3109_빵집 {
 
     static int dfs(int top, int move, char[][] map, boolean[][] v) {
         v[top][move] = true;
-        if (move==m-1) {
-            return 1;
-        }
+        if (move==m-1) return 1;
+
         for (int d = 0; d < 3; d++) {
             int tempTop = top + mv[d];
-            if (inRange(tempTop) && map[tempTop][move+1]=='.' && !v[tempTop][move+1]) {
-                if (dfs(tempTop, move+1, map, v)==1) {
-                    return 1;
-                }
+            if (inRange(tempTop) && !v[tempTop][move+1] && map[tempTop][move+1]=='.') {
+                if (dfs(tempTop, move+1, map, v)==1) return 1;
             }
         }
         return 0;
     }
+
     public static void main(String[] args) throws Exception {
         System.setIn(new FileInputStream("mingyun/project/src/homework/a0816/res/input_3109.txt"));
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
