@@ -38,38 +38,27 @@ public class Solution_5644_무선충전 {
     }
 
     public static int getSum(ArrayList<Charger> a, ArrayList<Charger> b) {
-        int sa = 0, sb = 0;
-        if (!a.isEmpty() && !b.isEmpty()) {
-            if (a.get(0).num == b.get(0).num) {
-                int max = 0;
-                if (a.size()==2 && b.size()==2) {
-                    max = Math.max(a.get(1).power, b.get(1).power);
+        int maxSum = 0;
+
+        for (Charger chargerA : a) {
+            for (Charger chargerB : b) {
+                int currentSum;
+                if (chargerA.num == chargerB.num) {
+                    currentSum = chargerA.power;
+                } else {
+                    currentSum = chargerA.power + chargerB.power;
                 }
-                else if (a.size()==2) {
-                    max = a.get(1).power;
-                }
-                else if (b.size()==2) {
-                    max = b.get(1).power;
-                }
-                if (max > a.get(0).power/2) {
-                    return a.get(0).power + max;
-                }
-                else {
-                    return a.get(0).power/2;
-                }
-            }
-            else {
-                if (a.size() == 1 && b.size() == 1) {
-                    sa = a.get(0).power;
-                    sb = b.get(0).power;
-                }
+                maxSum = Math.max(maxSum, currentSum);
             }
         }
-        else {
-            if (!a.isEmpty()) sa = a.get(0).power;
-            else if (!b.isEmpty()) sb = b.get(0).power;
+
+        if (a.isEmpty() && !b.isEmpty()) {
+            maxSum = b.get(0).power;
+        } else if (!a.isEmpty() && b.isEmpty()) {
+            maxSum = a.get(0).power;
         }
-        return sa + sb;
+
+        return maxSum;
     }
     public static void main(String[] args) throws Exception{
         System.setIn(new FileInputStream("mingyun/project/src/homework/a0817/res/input_5644.txt"));
@@ -92,7 +81,7 @@ public class Solution_5644_무선충전 {
                 for (int j=0;j<10;j++) map[i][j] = new ArrayList<>(2);
             }
 
-            for (int ap=0;ap<a;ap++) {
+            for (int ap=1;ap<=a;ap++) {
                 st = new StringTokenizer(br.readLine());
                 int j = Integer.parseInt(st.nextToken()) -1,
                     i = Integer.parseInt(st.nextToken()) -1,
@@ -117,7 +106,7 @@ public class Solution_5644_무선충전 {
                 }
                 sum += getSum(map[personA.i][personA.j],map[personB.i][personB.j]);
             }
-            System.out.println(sum);
+            System.out.println("#"+ TC + " " + sum);
         }
     }
 }
