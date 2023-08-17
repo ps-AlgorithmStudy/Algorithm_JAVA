@@ -42,7 +42,7 @@ public class bj_1922_쿼드트리 {
     }
 
     public static void main(String[] args) throws Exception {
-        System.setIn(new FileInputStream("mingyun/project/src/homework/a0816/res/input_1922.txt"));
+        System.setIn(new FileInputStream("mingyun/project/src/homework/a0816/res/input_1873.txt"));
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         n = Integer.parseInt(br.readLine());
         int[][] arr = new int[n][n];
