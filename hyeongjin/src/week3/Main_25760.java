@@ -29,7 +29,7 @@ public class Main_25760 {
         Queue<Node> queue = new LinkedList<>();
         queue.offer(nodes[1]);
 
-        while(!queue.isEmpty())
+        while(!queue.isEmpty());
     }
     public static void main(String[] args) throws Exception{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
