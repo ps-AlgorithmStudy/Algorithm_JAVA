@@ -26,21 +26,30 @@ public class bj_1202_보석도둑 {
         int n = Integer.parseInt(st.nextToken());
         int m = Integer.parseInt(st.nextToken());
 
-        PriorityQueue<Gem> queue = new PriorityQueue<>(n,
-                (o1,o2)-> -Integer.compare(o1.v, o2.v));
+        ArrayList<Gem> gems = new ArrayList<>(n);
         ArrayList<Integer> bag = new ArrayList<>(m);
 
         for (int i=0;i<n;i++) {
             st = new StringTokenizer(br.readLine());
-            queue.add(new Gem(Integer.parseInt(st.nextToken()),Integer.parseInt(st.nextToken())));
+            gems.add(new Gem(Integer.parseInt(st.nextToken()),Integer.parseInt(st.nextToken())));
         }
 
         for (int i=0;i<m;i++) bag.add(Integer.parseInt(br.readLine()));
-        bag.sort(Comparator.reverseOrder());
+        bag.sort(Comparator.naturalOrder());
+        gems.sort(((o1, o2) -> Integer.compare(o1.m, o2.m)));
 
-        while (!queue.isEmpty()) {
-            System.out.println(queue.remove());
+        PriorityQueue<Integer> queue = new PriorityQueue<>(n,Comparator.reverseOrder());
+
+        int x = 0;
+        long result = 0;
+        for (int b:bag) {
+            while (x<n && gems.get(x).m <= b) {
+                queue.add(gems.get(x++).v);
+            }
+            if (!queue.isEmpty()) {
+                result = result + queue.remove();
+            }
         }
-
+        System.out.println(result);
     }
 }
