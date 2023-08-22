@@ -54,8 +54,6 @@ public class bj_15683_감시 {
                     i += mi[t]; j+= mj[t];
                 }
             }
-            //for (int[] a:tempMap) System.out.println(Arrays.toString(a));
-            //System.out.println();
             run(p+1, tempMap, cameras);
         }
     }
