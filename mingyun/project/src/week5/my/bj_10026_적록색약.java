@@ -26,7 +26,7 @@ public class bj_10026_적록색약 {
     }
 
     public static void main(String[] args) throws Exception {
-        System.setIn(new FileInputStream("mingyun/project/src/week5/res/input_bj_10026.txt"));
+
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         n = Integer.parseInt(br.readLine());

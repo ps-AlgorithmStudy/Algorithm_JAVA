@@ -95,7 +95,7 @@ public class bj_17135_캐슬디펜스 {
     }
 
     public static void main(String[] args) throws Exception {
-        System.setIn(new FileInputStream("mingyun/project/src/homework/M08/a0818/res/input_17135.txt"));
+        System.setIn(new FileInputStream("mingyun/project/src/homework/M08/a0818/res/수열편집.txt"));
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
