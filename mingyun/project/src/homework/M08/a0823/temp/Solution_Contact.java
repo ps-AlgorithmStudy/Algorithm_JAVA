@@ -8,7 +8,7 @@ import java.util.StringTokenizer;
 
 public class Solution_Contact {
     public static void main(String[] args) throws Exception {
-        System.setIn(new FileInputStream("mingyun/project/src/homework/M08/a0823/res/contact.txt"));
+        System.setIn(new FileInputStream("mingyun/project/src/homework/M08/a0823/res/15961.txt"));
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         for (int TC = 1; TC <= 10; TC++) {
