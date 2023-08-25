@@ -16,7 +16,7 @@ public class bj_4485_그래서녹색옷입은애가젤다지 {
 
             int[] di = {0,1,0,-1};
             int[] dj = {1,0,-1,0};
-
+            int c=1;
             while (true) {
                 int n = Integer.parseInt(br.readLine());
                 int[][] arr = new int[n+1][n+1];
@@ -33,15 +33,26 @@ public class bj_4485_그래서녹색옷입은애가젤다지 {
                     }
                 }
 
-                PriorityQueue<int[]> pq = new PriorityQueue<>(((o1, o2) -> Integer.compare(o1[3], o2[3])));
+                PriorityQueue<int[]> pq = new PriorityQueue<>(((o1, o2) -> Integer.compare(o1[2], o2[2])));
                 boolean[][] v = new boolean[n+1][n+1];
                 pq.add(new int[]{1,1,arr[1][1]});
-
+                result[1][1] = arr[1][1];
                 while(!pq.isEmpty()) {
                     int[] next = pq.remove();
-                    int i = next[0], j = next[1], w = next[0];
-                    if (v[i][j])
+                    int i = next[0], j = next[1], w = next[2];
+                    if (v[i][j]) continue;
+                    v[i][j] = true;
+                    if (i==n && j==n) break;
+                    for (int d=0;d<4;d++) {
+                        int mi = i + di[d]; int mj = j + dj[d];
+                        if (!(0<mi && mi<=n && 0<mj && mj <=n)) continue;
+                        if (!v[mi][mj] && result[mi][mj] > w + arr[mi][mj]) {
+                            result[mi][mj] = w + arr[mi][mj];
+                            pq.add(new int[]{mi,mj, result[mi][mj]});
+                        }
+                    }
                 }
+                System.out.println("Problem "+ c++ +": " + result[n][n]);
             }
         }
     }
