@@ -34,31 +34,27 @@ public class week6_bj_17142_연구소3 {
         ArrayDeque<int[]> queue = new ArrayDeque<>();
 
         for (int i = 0; i < M; i++) { // M 개를 뽑은 바이러스의 위치를 큐에 저장
-            v[virusList.get(i)[0]][virusList.get(i)[1]] = true;
+            v[virusList.get(b[i])[0]][virusList.get(b[i])[1]] = true;
             queue.offer(new int[] { virusList.get(b[i])[0],virusList.get(b[i])[1],0});
         }
 
-//        for (int i = 0; i < virusList.size(); i++) {
-//        }
-
         while(!queue.isEmpty()){
             int[] cur = queue.poll();
-            if (arr[cur[0]][cur[1]] != 2)
+            if (arr[cur[0]][cur[1]] == 0)
                 depth = (depth > cur[2]) ? depth : cur[2]; // depth 를 max depth 값으로 갱신
             for (int i = 0; i < 4; i++) { // 4방탐색
                 int tx = cur[0] + dx[i];
                 int ty = cur[1] + dy[i];
 
-                if (tx < 0 || tx >= N || ty < 0 || ty >= N) continue; // range 처리
+                if (tx < 0 || tx >= N || ty < 0 || ty >= N) continue;// range 처리
                 if (v[tx][ty]) continue; // visited 처리
-                if (arr[tx][ty] == 1) continue; // 벽 처리
+                if (arr[tx][ty] == 1) continue;// 벽 처리
+                if (arr[tx][ty] == 0) virus++;// 바이러스로 변한 방의 개수++ 비활성 바이러스는 굳이 채우지 않아도 됨.
                 v[tx][ty] = true;
-                if (arr[tx][ty] == 0) virus++; // 바이러스로 변한 방의 개수++
                 queue.offer(new int[] {tx, ty, cur[2] + 1});
             }
         }
 
-//        System.out.println(virus + " " + room);
         if (virus == room) return depth; // 모든 방이 바이러스로 바꼈다면 return depth
         return -1; // 아니라면 -1 return
     }
@@ -144,5 +140,13 @@ public class week6_bj_17142_연구소3 {
 1 1 1 1 1 1 1 1 1 1 1
 
 4
+
+5 1
+1 1 0 1 1
+1 1 2 1 1
+1 1 2 1 1
+1 1 0 1 1
+1 1 2 1 1
+
 
  */
