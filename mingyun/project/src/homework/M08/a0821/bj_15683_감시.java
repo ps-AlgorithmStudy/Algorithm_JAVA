@@ -59,7 +59,7 @@ public class bj_15683_감시 {
     }
 
     public static void main(String[] args) throws Exception {
-        System.setIn(new FileInputStream("mingyun/project/src/homework/M08/a0821/res/contact.txt"));
+        System.setIn(new FileInputStream("mingyun/project/src/homework/M08/a0821/res/15961.txt"));
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
