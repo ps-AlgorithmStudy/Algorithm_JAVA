@@ -31,12 +31,12 @@ public class week7_bj_1238_파티 {
             if (minVertex == back) break;
 
             for (int j = 0; j < N; j++) {
-                if (!v[j] && g[minVertex][j] != 0 && minEdge[j] > g[minVertex][j]){
-                    minEdge[j] = g[minVertex][j];
+                if (!v[j] && g[minVertex][j] != 0 && minEdge[j] > min + g[minVertex][j]){
+                    minEdge[j] = min + g[minVertex][j];
                 }
             }
         }
-        return result;
+        return minEdge[back];
     }
     public static void main(String[] args) throws Exception{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
