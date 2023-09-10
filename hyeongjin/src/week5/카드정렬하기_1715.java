@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class Ä«µåÁ¤·ÄÇÏ±â_1715 {
+public class ì¹´ë“œì •ë ¬í•˜ê¸°_1715 {
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
