@@ -32,10 +32,6 @@ public class PuyoPuyo {
         int[] dj = {1,0,-1,0};
 
         while (boom) {
-//            for (char[] m : map) {
-//                System.out.println(Arrays.toString(m));
-//            }
-//            System.out.println();
             boom = false;
             ArrayList<Pointer> eraseAll = new ArrayList<>();
             for (int i=0;i<12;i++) {
