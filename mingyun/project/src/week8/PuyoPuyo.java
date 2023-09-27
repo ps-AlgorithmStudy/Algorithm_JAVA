@@ -68,7 +68,7 @@ public class PuyoPuyo {
             }
             if (!eraseAll.isEmpty()) {
                 boom = true;
-                eraseAll.sort(((o1, o2) -> Integer.compare(o1.i, o2.i)));
+                eraseAll.sort((Comparator.comparingInt(o -> o.i)));
                 for (Pointer pointer:eraseAll) {
                     int mj = pointer.j;
                     int mi = pointer.i;
