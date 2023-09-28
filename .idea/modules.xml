@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Algorithm_JAVA.iml" filepath="$PROJECT_DIR$/Algorithm_JAVA.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mingyun/mingyun.iml" filepath="$PROJECT_DIR$/mingyun/mingyun.iml" />
     </modules>
   </component>
 </project>
