@@ -1,6 +1,6 @@
 import java.io.*;
 import java.util.*;
-public class ÄÅ¶ó¸é_1781 {
+public class ì»µë¼ë©´_1781 {
 	public static void main(String[] args)throws IOException{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st;
@@ -16,7 +16,7 @@ public class ÄÅ¶ó¸é_1781 {
 			int ramen    = Integer.parseInt(st.nextToken());
 			cr.add(new Cup(deadline,ramen));
 		}
-		Collections.sort(cr); // ÄÅ¶ó¸é Á¤·Ä
+		Collections.sort(cr); // ï¿½Å¶ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 		for (Cup cup : cr) {
 			int d = cup.deadline;
@@ -40,7 +40,7 @@ class Cup implements Comparable<Cup>{
 	
 	@Override
 	public int compareTo(Cup o) {
-		if(deadline == o.deadline) return o.ramen - ramen; // µ¥µå¶óÀÎÀÌ °°À¸¸é ¶ó¸é¼ö  ÀûÀº°Å
-		else return deadline - o.deadline;				   // µ¥µå¶óÀÎ ÀûÀº°Å
+		if(deadline == o.deadline) return o.ramen - ramen; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		else return deadline - o.deadline;				   // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	}
 }

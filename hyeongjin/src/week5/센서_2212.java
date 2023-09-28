@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class ¼¾¼­_2212{
+public class ì„¼ì„œ_2212{
 	public static void main(String[] args) throws Exception{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st;

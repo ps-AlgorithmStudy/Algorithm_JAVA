@@ -13,7 +13,7 @@ public class 파이프옮기기 {
         boolean[][] map;
         int n;
         Work() throws Exception {
-            System.setIn(new FileInputStream("mingyun/project/src/week6/res/파이프옮기기.txt"));
+            System.setIn(new FileInputStream("mingyun/project/src/week6/res/부분합.txt"));
             BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
             n = Integer.parseInt(br.readLine());
             map = new boolean[n][n];
