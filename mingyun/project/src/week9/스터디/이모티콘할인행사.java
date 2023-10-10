@@ -1,4 +1,4 @@
-package week9;
+package week9.스터디;
 
 import java.util.Arrays;
 

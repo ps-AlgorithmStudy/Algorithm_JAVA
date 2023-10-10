@@ -23,8 +23,5 @@ public class LCS {
             }
         }
         System.out.println(lcs[fl][sl]);
-
-
-
     }
 }
