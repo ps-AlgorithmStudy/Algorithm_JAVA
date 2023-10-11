@@ -31,7 +31,6 @@ public class week9_bj_16637_괄호추가하기 {
         for (int i = cnt - 1; i >= 0; i--) {
             calIndex(b[i], nums, opers);
         }
-
         while(!opers.isEmpty()){
             calIndex(0, nums, opers);
         }

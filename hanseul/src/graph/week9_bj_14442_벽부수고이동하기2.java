@@ -7,30 +7,42 @@ public class week9_bj_14442_벽부수고이동하기2 {
 
     static int N, M, K;
     static char[][] arr;
-    static int[] b;
-    static ArrayList<Integer> wallList = new ArrayList<>();
-
-    static void comb(int cnt, int start){
-        // 경로 구하기
-
-        // cnt 제한
-        if (cnt == K) return ;
-        // 경우의 수 구하기
-        for (int i = start; i < wallList.size(); i++) {
-            arr[wallList.get(i) / M][wallList.get(i) % M] = '0';
-            comb(cnt + 1, i + 1);
-            arr[wallList.get(i) / M][wallList.get(i) % M] = '1';
-        }
-    }
+    static int[] dx = {0, 0, -1 ,1};
+    static int[] dy = {1, -1, 0, 0};
 
     static int calRoute(){
-        int result = 0 ;
+        if (0 == N - 1 && 0 == M - 1) return 1;
+
         ArrayDeque<int []> q = new ArrayDeque<>();
+        boolean v[][][] = new boolean[N][M][11];
 
-        q.offer(new int[]{0, 0, 0});
+        q.offer(new int[]{0, 0, 1, 0});
+        v[0][0][0] = true;
+        int key;
 
+        while(!q.isEmpty()){
+            int[] cur = q.poll();
 
-        return result;
+            for (int i = 0; i < 4; i++) {
+                int tx = cur[0] + dx[i];
+                int ty = cur[1] + dy[i];
+
+                if (tx < 0 || tx >= N || ty < 0 || ty >= M) continue;
+                if (tx == N - 1 && ty == M - 1) return cur[2] + 1;
+
+                key = cur[3];
+                if (arr[tx][ty] == '1' ) {
+                    if (key < K) key++;
+                    else continue;
+                }
+
+                if (v[tx][ty][key]) continue;
+                q.offer(new int[] {tx, ty, cur[2] + 1, key});
+                v[tx][ty][key] = true;
+
+            }
+        }
+        return -1;
     }
 
     public static void main(String[] args) throws Exception{
@@ -42,15 +54,13 @@ public class week9_bj_14442_벽부수고이동하기2 {
         K = Integer.parseInt(st.nextToken());
 
         arr = new char[N][M];
-        int cnt = 0;
         for (int i = 0; i < N; i++) {
             String tmp = br.readLine();
-            for (int j = 0; j < M; j++, cnt++) {
+            for (int j = 0; j < M; j++) {
                 arr[i][j] = tmp.charAt(j);
-                if (arr[i][j] == '1')
-                    wallList.add(cnt);
             }
         }
+        System.out.println(calRoute());
 
     }
 }
