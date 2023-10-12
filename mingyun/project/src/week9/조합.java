@@ -7,25 +7,21 @@ import java.util.StringTokenizer;
 
 public class 조합 {
     static long n, r;
-    static long divider = 1234567891;
+    static long divider = 1000000007;
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int T = Integer.parseInt(br.readLine());
-        for(int tc=1; tc<=T; tc++) {
-            StringTokenizer st = new StringTokenizer(br.readLine());
-            n = Integer.parseInt(st.nextToken());
-            r = Integer.parseInt(st.nextToken());
-            long v1 = 1;
-            long v2 = 1;
-            long t = Math.min(r, n- r);
-            for(int i=0; i<t; i++) {
-                v1 = v1*(n-i)% divider;
-                v2 = v2*(t-i)% divider;
-            }
-            long ans = (v1% divider *div(v2, divider -2)% divider)% divider;
-
-            System.out.println("#"+tc+" "+ans);
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        n = Integer.parseInt(st.nextToken());
+        r = Integer.parseInt(st.nextToken());
+        long v1 = 1;
+        long v2 = 1;
+        long t = Math.min(r, n- r);
+        for(int i=0; i<t; i++) {
+            v1 = v1*(n-i)% divider;
+            v2 = v2*(t-i)% divider;
         }
+        long ans = (v1% divider *div(v2, divider -2)% divider)% divider;
+        System.out.println(ans);
     }
 
     static long div(long v1, long v2) {
