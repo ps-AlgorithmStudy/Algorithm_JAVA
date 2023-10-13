@@ -1,7 +1,9 @@
+package implementation;
+
 import java.io.*;
 import java.util.*;
 
-public class weekn_bj_36진수 {
+public class week10_bj_1036_36진수 {
 
     static int N, K;
     static int[] radix;
@@ -9,29 +11,16 @@ public class weekn_bj_36진수 {
     static char[] b;
     static String[] nums;
     static int[][] charMap;
-
-
+    static int[][] charMapC;
     static TreeSet<Character> ts = new TreeSet<>();
-    static void comb(int cnt, int start){
-
-//        for (int j = 0; j < 51; j++) {
-//            if (tmpMax[j] / 36 == 0) continue;
-//            tmpMax[j + 1] += tmpMax[j] / 36;
-//            tmpMax[j] %= 36;
-//        }
-
-//        for (int i = charMap.length - 1; i < charMap.length; i--) {
-//            for (int j = 0; j < charMap[i].length; j++) {
-//                if (charMap[i][j] != 0) ts.add(radix10(j));
-//                if (ts.size() == K) break;
-//            }
-//            if (ts.size() == K) break;
-//        }
+    static void comb(){
         for (int i = 0; i < charMap[0].length; i++) {
             for (int j = 0; j < charMap.length; j++) {
-                if (charMap[j][i] / 36 == 0) continue;
-                charMap[j + 1][i] += charMap[j][i] / 36;
-                charMap[j][i] %= 36;
+                if (charMap[j][i] * (35 - i) / 36 == 0) continue;
+                charMap[j + 1][i] += charMap[j][i] * (35 - i) / 36;
+                int idx = (charMap[j][i] * (35 - i)) % 36;
+                charMap[j][i] = 0;
+                charMap[j][idx]++;
             }
         }
 
@@ -56,16 +45,19 @@ public class weekn_bj_36진수 {
         int[] tmpMax = new int[52];
         for(char ch1 : b){
             int idx = radix36(ch1);
-            for (int i = 0; i < charMap.length; i++) {
-                tmpMax[i] += charMap[i][idx] * (35 - idx);
+            for (int i = 0; i < charMapC.length; i++) {
+                tmpMax[i] += charMapC[i][idx] * (35 - idx);
             }
         }
-
+        System.out.println(Arrays.toString(tmpMax));
         for (int j = 0; j < 51; j++) {
             if (tmpMax[j] / 36 == 0) continue;
             tmpMax[j + 1] += tmpMax[j] / 36;
-            tmpMax[j] %= 36;
+            int idx = tmpMax[j] % 36;
+            tmpMax[j] = 0;
+            tmpMax[idx]++;
         }
+        System.out.println(Arrays.toString(tmpMax));
 
         if (!init){
             diffArr = tmpMax;
@@ -84,7 +76,6 @@ public class weekn_bj_36진수 {
 
 
     static String plus36(){
-//        arr = new int[52];
 
         for (int i = 0; i < N; i++) {
             char strs[] = nums[i].toCharArray();
@@ -92,10 +83,7 @@ public class weekn_bj_36진수 {
                 diffArr[j] += radix36(strs[k]);
             }
         }
-        return radixStr();
-    }
 
-    static String radixStr(){
         String result = "";
 
         for (int j = 0; j < 51; j++) {
@@ -112,19 +100,9 @@ public class weekn_bj_36진수 {
             else result += ((char)('A' + diffArr[i] - 10));
         }
 
+        if (result.equals("")) result = "0";
         return result;
     }
-
-//    static boolean isZ(char ch){
-//        for(char ch1 : b)
-//            if (ch1 == ch) return true;
-//        return false;
-//    }
-//    static boolean isZ(int n){
-//        for(char ch1 : b)
-//            if (ch1 == radix10(n)) return true;
-//        return false;
-//    }
 
     static int radix36(char ch){
         if ('0' <= ch && ch <= '9') return ch - '0';
@@ -135,6 +113,7 @@ public class weekn_bj_36진수 {
         if (0 <= n && n <= 9) return (char)(n + '0');
         else return (char)(n - 10 + 'A');
     }
+
     public static void main(String[] args) throws Exception{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
@@ -143,6 +122,7 @@ public class weekn_bj_36진수 {
         radix = new int[36];
         nums = new String[N];
         charMap = new int[52][36];
+        charMapC = new int[52][36];
 
         for (int i = 0; i < N; i++) {
             nums[i] = br.readLine();
@@ -151,6 +131,7 @@ public class weekn_bj_36진수 {
                 int tmp = radix36(strs[j]);
                 radix[tmp]++;
                 charMap[k][tmp]++;
+                charMapC[k][tmp]++;
             }
         }
 
@@ -166,7 +147,7 @@ public class weekn_bj_36진수 {
         if (K > chs.length) K = chs.length;
 
         b = new char[K];
-        comb(0,0);
+        comb();
 
         System.out.println(plus36());
     }
@@ -175,4 +156,32 @@ public class weekn_bj_36진수 {
 1
 ABCDE
 2
+
+1
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+1
+
+
+10
+ASDFJH
+ADSFKAF
+DSJFFD
+23JH4
+2J4H32
+23JH
+LK65
+L6KN3
+LKN22
+LKN
+0
+1ZZYW7875RB14TYADC2B5TDLQCN9Z3LTLQ819NIAVJ34LW3M
+1ZZYW7875RB14TYADC2B5TDLQCN9Z3LTLQ819NIAVJ34LW3M
+
+
+4
+YX
+Z0
+Z0
+Z0
+1
  */
