@@ -90,7 +90,7 @@ public class Main_bj_13460_구슬탈출2_bfs {
 				}
 				
 				// 빨간 파랑 서로 만났을 때 
-				if(nRx == nBx && nRy == nBy && map[nRx][nRy] != 44) { 
+				if(nRx == nBx && nRy == nBy) { 
 					int red_move = Math.abs(nRx-pos[0]) + Math.abs(nRy-pos[1]);
 					int blue_move = Math.abs(nBx-pos[2]) + Math.abs(nBy-pos[3]);
 					
