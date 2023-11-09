@@ -1,10 +1,6 @@
 package week12;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.PriorityQueue;
-
+import java.util.*;
 // https://school.programmers.co.kr/learn/courses/30/lessons/118669
 public class pg_118669_등산코스_정하기 {
 
