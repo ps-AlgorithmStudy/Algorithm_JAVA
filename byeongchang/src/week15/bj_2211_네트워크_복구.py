@@ -4,7 +4,7 @@ from heapq import heappush, heappop
 
 # https://www.acmicpc.net/problem/2211
 
-def solution():
+def solution() -> None:
     sysinput = sys.stdin.readline
     N, M = map(int, sysinput().split())
     network = defaultdict(dict)
@@ -38,7 +38,7 @@ def dijkstra(start: int, network: defaultdict, N: int) -> dict:
     return circuit
 
 
-def solution2():
+def solution2() -> None:
     sysinput = sys.stdin.readline
     N, M = map(int, sysinput().split())
     network = [[0] * (N+1) for _ in range(N+1)]
