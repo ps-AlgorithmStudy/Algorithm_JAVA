@@ -32,6 +32,7 @@ public class week14_bj_2098_외판원순회 {
 
         if (dp[now][v] == -1) return INF;
         return dp[now][v];
+
     }
     public static void main(String[] args) throws Exception{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
