@@ -16,8 +16,9 @@ public class Main_BJ3089 {
         int N = Integer.parseInt(st.nextToken());
         int M = Integer.parseInt(st.nextToken());
 
-        TreeSet<Integer>[] X = new TreeSet[200_000];
-        TreeSet<Integer>[] Y = new TreeSet[200_000];
+        // 좌표 범위가 -100000 < x,y < 100000
+        TreeSet<Integer>[] X = new TreeSet[200000];
+        TreeSet<Integer>[] Y = new TreeSet[200000];
 
         for (int i = 0; i < N; i++) {
             st= new StringTokenizer(br.readLine());
@@ -27,11 +28,13 @@ public class Main_BJ3089 {
             if(X[x] == null) X[x] = new TreeSet<>();
             if(Y[y] == null) Y[y] = new TreeSet<>();
 
+            // 각 x,y좌표에 대응하는 상대 좌표 입력
             X[x].add(y);
             Y[y].add(x);
         }
         String cmds = br.readLine();
 
+        // 원점 (+100000)
         int nextX = 100000;
         int nextY = 100000;
         for (int i = 0; i < M; i++) {
