@@ -28,6 +28,11 @@ public class week10_pg_디스크컨트롤러 {
         });
         int curState = 0;
 
+        PriorityQueue<int[]> q = new PriorityQueue<>((o1, o2) -> {
+            if (o1[1] == o2[1]) return Integer.compare(o1[0], o2[0]);
+            return Integer.compare(o1[1], o2[1]);
+        });
+
         while (!list.isEmpty() || !pq.isEmpty()){
 
             // 현재 curState 와 비교해서 실행시킬수 있는 프로세스 넣기
