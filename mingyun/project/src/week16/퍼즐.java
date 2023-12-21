@@ -76,6 +76,7 @@ public class 퍼즐 {
         visit.add(toHashString(map));
         Queue<Puzzle> queue = new ArrayDeque<>();
         queue.add(new Puzzle(map, zero, 0));
+
         while (!queue.isEmpty()) {
             Puzzle now = queue.poll();
             if (validate(now.map)) {
