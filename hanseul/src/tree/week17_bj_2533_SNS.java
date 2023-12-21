@@ -21,8 +21,8 @@ public class week17_bj_2533_SNS {
 
         for(int c : g[n]) {
             if(!v[c]) {
-                dfs(c);	// dfs 재귀호출을 통해 자식 노드의 dp값을 미리 구한다.
-                dp[n][0] += dp[c][1];	// 자식 노드가 무조건 얼리어답터여야한다.
+                dfs(c);
+                dp[n][0] += dp[c][1];
                 dp[n][1] += Math.min(dp[c][0], dp[c][1]);
             }
         }
