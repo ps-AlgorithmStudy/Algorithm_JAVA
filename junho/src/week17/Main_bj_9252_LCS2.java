@@ -3,6 +3,7 @@ package daily.a1221;
 import java.io.*;
 import java.util.*;
 
+// 메모리 초과
 public class Main_bj_9252_LCS2 {
     static final int MAX_L = 1001;
     static String[][] D = new String[MAX_L][MAX_L];
