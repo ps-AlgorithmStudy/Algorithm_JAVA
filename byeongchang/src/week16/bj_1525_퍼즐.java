@@ -8,7 +8,6 @@ import java.util.StringTokenizer;
 
 // https://www.acmicpc.net/problem/1525
 public class bj_1525_퍼즐 {
-    final static int[][] ORANIZED_STATE = {{1,2,3},{4,5,6},{7,8,0}}; // 정리된 상태
     final static String ANSWER = "123456780";
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -96,50 +95,4 @@ public class bj_1525_퍼즐 {
         return inversion % 2 == 0;
     }
 
-
-    // TODO: A* 알고리즘 활용해보기
-    /* A* 알고리즘용 */
-    class State implements Comparable<State>{
-        int[][] table;
-        int f;   // g + h
-        int g;   // 현재까지 이동한 횟수
-        int h;   // 제자리에 있지 않은 퍼즐 개수
-
-        public State(int[][] table, int g){
-            this.table = arrayCopy(table);
-            this.g = g;
-            this.h = getH();
-            this.f = this.g + this.h;
-        }
-
-        public State(int[][] table) {
-            this.table = table;
-            this.g = 0;
-            this.h = getH();
-            this.f = this.g + this.h;
-        }
-
-        private int[][] arrayCopy(int[][] src) {
-            int[][] dest = new int[src.length][];
-            for (int i = 0; i < src.length; i++) {
-                dest[i] = src[i].clone();
-            }
-            return dest;
-        }
-        private int getH() {
-            int h = 0;
-            for(int i = 0; i < 3; i++){
-                for(int j = 0; j < 3; j++){
-                    if(table[i][j] != ORANIZED_STATE[i][j]) h++;
-                }
-            }
-            return h;
-        }
-
-        @Override
-        public int compareTo(State o) {
-            if(this.f == o.f) return Integer.compare(this.g, o.g);
-            else return Integer.compare(this.f, o.f);
-        }
-    }
 }

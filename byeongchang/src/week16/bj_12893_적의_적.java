@@ -26,7 +26,7 @@ public class bj_12893_적의_적 {
             enemy[B][A] = true;
         }
 
-        int[] group = new int[N+1];
+        int[] group = new int[N+1];   // 팀 저장용 배열
         for(int i=1; i<=N; i++) {
             if(group[i] == 0) {
                 if(!binaryGraph(i, 1, group, enemy)) return 0;
