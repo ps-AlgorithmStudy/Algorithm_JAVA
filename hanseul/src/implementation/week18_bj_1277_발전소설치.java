@@ -2,7 +2,7 @@ package implementation;
 
 import java.io.*;
 import java.util.*;
-public class week17_bj_1277_발전소설치 {
+public class week18_bj_1277_발전소설치 {
     static int N, W;
     static double M;
     static int[][] plant;

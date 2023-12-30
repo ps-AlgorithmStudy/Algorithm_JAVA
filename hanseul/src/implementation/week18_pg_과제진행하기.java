@@ -1,6 +1,6 @@
 package implementation;
 import java.util.*;
-public class week17_pg_과제진행하기 {
+public class week18_pg_과제진행하기 {
 
     class Solution {
 
