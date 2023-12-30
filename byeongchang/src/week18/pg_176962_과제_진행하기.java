@@ -38,8 +38,6 @@ public class pg_176962_과제_진행하기 {
                     Assignment prev = stack.peek();
                     // 종료 시간 계산
                     prev.end = cur.end + prev.time;
-                    // 시작 시간 갱신
-                    prev.start = cur.end;
                     // 다음 과제는 pq에 넣어 현재 진행 중인 과제가 아님을 표시
                     pq.offer(next);
                 }
