@@ -1,5 +1,6 @@
 package week20;
 
+// https://school.programmers.co.kr/learn/courses/30/lessons/258705
 public class pg_258705_산_모양_타일링 {
     static final int TRAPEZOID = 0;    // 사다리꼴
     static final int MOD = 10007;    // 나누기 연산을 위한 값
@@ -47,6 +48,7 @@ public class pg_258705_산_모양_타일링 {
             int answer = sol.solution(t.n, t.tops);
             System.out.println((answer == t.result) + " sol : " + answer + ", ans : " + t.result);
         }
+
 
 
     }
