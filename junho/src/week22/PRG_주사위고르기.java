@@ -83,14 +83,29 @@ class PRG_주사위고르기 {
     int compare(List<Integer> aSum, List<Integer> bSum) {
         int sum = 0;
         for(int key : aSum) {
-            int count = Collections.binarySearch(bSum, key);
-            if(count < 0) {
-                count = -1 * count - 1;
-            }
+            int count = binarySearch(bSum, key);
             sum += count;
         }
         return sum;
     }
-    
+
+    // key보다 작은 조건을 만족하는 요소 중 제일 끝에 위치한 요소를 찾는다.
+    int binarySearch(List<Integer> src, int key) {
+        int start = 0;
+        int end = src.size();
+        
+        while(start + 1 < end) {
+            int mid = (start + end) / 2;
+            int value = src.get(mid);
+            
+            if(value >= key) {
+                end = mid;
+            } else {
+                start = mid;
+            }
+        }
+        
+        return start;
+    }
     
 }
