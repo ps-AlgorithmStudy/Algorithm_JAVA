@@ -14,9 +14,10 @@ public class bj_20057_마법사상어와토네이도 {
 
     static void tornado(){
         int dir = 0;
-        int x = N / 2;
+        int x = N / 2;  // 중간지점부터 시작
         int y = N / 2;
         for (int i = 1; i < N; i++) {
+            // 직선 운동을 다른 방향으로 각 2회씩 함.
             moveTornado(x, y, dir, i);
             x += dx[dir] * i;
             y += dy[dir] * i;
@@ -29,10 +30,12 @@ public class bj_20057_마법사상어와토네이도 {
         moveTornado(x, y, dir, N - 1);
     }
 
+    // 1회 직선으로 움직임 처리 함수
     static void moveTornado(int x, int y, int dir, int repeat){
         int tx = x;
         int ty = y;
-        for (int i = 0; i < repeat; i++) {
+
+        for (int i = 0; i < repeat; i++) { // dir 방향으로 repeat 수 만큼 움직인다.
             tx += dx[dir];
             ty += dy[dir];
             calSand(tx, ty, dir);
@@ -40,8 +43,8 @@ public class bj_20057_마법사상어와토네이도 {
     }
 
     static void calSand(int x, int y, int dir){
-        int way = (dir + 1) % 4;
-        int[] sand = new int[5];
+        int way = (dir + 1) % 4; // dir 과 반대되는 방향을 찾는다, (가로 <-> 세로 )
+        int[] sand = new int[5]; // 흩어지는 모래양을 미리 구한다.
         int tx, ty;
         sand[0] = (int) (arr[x][y] * 0.01);
         sand[1] = (int) (arr[x][y] * 0.02);
@@ -49,13 +52,13 @@ public class bj_20057_마법사상어와토네이도 {
         sand[3] = (int) (arr[x][y] * 0.07);
         sand[4] = (int) (arr[x][y] * 0.10);
 
-        int sum = (sand[0] + sand[1] + sand[2] + sand[3] + sand[4]) * 2 - sand[2];
+        int sum = (sand[0] + sand[1] + sand[2] + sand[3] + sand[4]) * 2 - sand[2]; // 흩어지고 남은 모래 ∂의 양
 
         if (sand[0] != 0){
-            tx = x - dx[dir];
+            tx = x - dx[dir]; // 현재 dir과 반대되는 방향으로 1칸 전진
             ty = y - dy[dir];
-            isRange(tx + dx[way], ty + dy[way], sand[0]);
-            isRange(tx - dx[way], ty - dy[way], sand[0]);
+            isRange(tx + dx[way], ty + dy[way], sand[0]); // dir 방향과 수직방향으로 움직인다.
+            isRange(tx - dx[way], ty - dy[way], sand[0]); // 위 방향과 반대방향 추가
         }
         if (sand[1] != 0){
             tx = x; ty = y;
@@ -83,10 +86,10 @@ public class bj_20057_마법사상어와토네이도 {
         arr[x][y] = 0;
     }
 
-    static void isRange(int x, int y, int sand){
-        if (x < 0 || x >= N || y < 0 || y >= N)
+    static void isRange(int x, int y, int sand){ // 범위 체크 및 모래양 계산
+        if (x < 0 || x >= N || y < 0 || y >= N) // 범위 밖이면 sandout에 sand 양 저장
             sandOut += sand;
-        else
+        else                                    // 범위 안이면 arr에 sand 양 저장
             arr[x][y] += sand;
     }
     public static void main(String[] args) throws Exception{
@@ -102,6 +105,7 @@ public class bj_20057_마법사상어와토네이도 {
             }
         }
 
+        // main 함수
         tornado();
 
         System.out.println(sandOut);
