@@ -47,6 +47,13 @@ class Solution {
                 win += bIdx;
             }
 
+            for(int a : sumA){
+                for(int b: sumB){
+                    if(a>b) win ++;
+                    else break;
+                }
+            }
+
             if(win > max){
                 max = win;
                 answer = combA;
