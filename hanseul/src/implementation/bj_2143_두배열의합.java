@@ -1,6 +1,8 @@
-import java.io.*;
-import java.util.*;
+package implementation;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 
 /*
 문제풀이
@@ -14,8 +16,7 @@ import java.util.*;
          => 2 * 4 = 8
 
  */
-public class Main {
-
+public class bj_2143_두배열의합 {
     static int T;
     static int n,m;
     static int[] a, b;
@@ -64,5 +65,4 @@ public class Main {
         }
         System.out.println(result);
     }
-
 }
