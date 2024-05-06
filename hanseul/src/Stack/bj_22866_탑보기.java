@@ -34,6 +34,7 @@ public class bj_22866_탑보기 {
             deque.offer(i);
         }
 
+
         deque = new ArrayDeque<>();
         for(int i=N; i>0; i--){
             while(!deque.isEmpty() && arr[deque.peekLast()] <= arr[i]){
